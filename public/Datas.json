@@ -1,0 +1,35 @@
+{
+  "order_datas": [
+    {
+      "Name": "Test_1",
+      "origin": {
+        "name": "Test_1",
+        "address": "Test_1",
+        "city": "New York",
+        "zip": "Test_1001"
+      },
+      "Desti": {
+        "name": "Test_1",
+        "address": "Test_1",
+        "city": "New York",
+        "zip": "Test_1001"
+      },
+      "Date_Time": {
+        "date": "2024-09-20",
+        "From_time": "09:00",
+        "To_time": "17:00"
+      },
+      "Line_Items": {
+        "description": "Glasses",
+        "pallet": "Type1",
+        "quantity": "10",
+        "weight": "10",
+        "dimension1": "12",
+        "dimension2": "23",
+        "dimension3": "22",
+        "nmfc": "Test_1",
+        "flag": "Test_1"
+      }
+    }
+  ]
+}

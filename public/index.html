@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            background-color: #e6effc;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-text,
+        .input-date,
+        .input-time,
+        .input-select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .line-items {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f4f4f9;
+            font-weight: bold;
+        }
+
+        .dimensions input {
+            width: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4>Prepaid</h4>
+        <div class="section">
+            <div class="section-title">Origin and Destination</div>
+            <div class="grid-container">
+                <div>
+                    <label for="origin-name" class="label">Origin</label>
+                    <input type="text" id="origin-name" class="input-text" placeholder="Origin Name" />
+                    <label for="origin-address" class="label">Address Line 1</label>
+                    <input type="text" id="origin-address" class="input-text" placeholder="Origin Address Line 1" />
+                    <!-- <label for="origin-address2" class="label">Address Line 2 (Optional)</label> -->
+                    <!-- <input type="text" id="origin-address2" class="input-text" placeholder="Address Line 2 (Optional)" /> -->
+                    <label for="origin-address2" class="label">City</label>
+                    <select id="origin-city" class="input-select">
+                        <option value="">Select City</option>
+                    </select>
+                    <label for="origin-zip" class="label">Zip</label>
+                    <input type="text" id="origin-zip" class="input-text" placeholder="Origin zip" />
+                </div>
+                <div>
+                    <label for="destination-name" class="label">Destination</label>
+                    <input type="text" id="destination-name" class="input-text" placeholder="Destination Name" />
+                    <label for="destination-address" class="label">Address Line 1</label>
+                    <input type="text" id="destination-address" class="input-text" placeholder="Destination Address Line 1" />
+                    <!-- <label for="destination-address2" class="label">Address Line 2 (Optional)</label> -->
+                    <!-- <input type="text" id="destination-address2" class="input-text" placeholder="Address Line 2 (Optional)" /> -->
+                    <label for="origin-address2" class="label">City</label>
+                    <select id="destination-city" class="input-select">
+                        <option value="">Select City</option>
+                    </select>
+                    <label for="destination-zip" class="label">Zip</label>
+                    <input type="text" id="destination-zip" class="input-text" placeholder="Destination Zip" />
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-title">Date and Time</div>
+            <div class="grid-container">
+                <div>
+                    <label for="pickup-date" class="label">Pickup By Date</label>
+                    <input type="date" id="pickup-date" class="input-date" value="2024-09-20" />
+                </div>
+                <div>
+                    <label for="pickup-time-from" class="label">Pickup From Time</label>
+                    <input type="time" id="pickup-time-from" class="input-time" value="09:00" />
+                </div>
+                <div>
+                    <label for="pickup-time-to" class="label">Pickup To Time</label>
+                    <input type="time" id="pickup-time-to" class="input-time" value="17:00" />
+                </div>
+            </div>
+        </div>
+
+        <div class="section line-items">
+            <div class="section-title">Line Items</div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Pallet</th>
+                        <th>Quantity</th>
+                        <th>Weight</th>
+                        <th>Dimensions</th>
+                        <th>NMFC Code</th>
+                        <th>Class/Flags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="input-text" id="description" placeholder="Description" /></td>
+                        <td>
+                            <select class="input-select" id="pallet">
+                                <option value="None">None</option>
+                                <option value="Type1">Type1</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="input-text" id="quantity" placeholder="" /></td>
+                        <td><input type="text" class="input-text" id="weight" placeholder="" /></td>
+                        <td class="dimensions">
+                            <input type="text" class="input-text" id="dimension1" placeholder="00" /> x
+                            <input type="text" class="input-text" id="dimension2" placeholder="00" /> x
+                            <input type="text" class="input-text" id="dimension3" placeholder="00" /> in
+                        </td>
+                        <td><input type="text" class="input-text" id="nmfc" placeholder="NMFC#" /></td>
+                        <td><input type="text" class="input-text" id="flag" placeholder="60/25/70" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <button id="submit-button" class="submit-button" onclick="handleAddOrgin()">Submit</button>
+    </div>
+    <script src="datas.js"></script>
+</body>
+</html>
